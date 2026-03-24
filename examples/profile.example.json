@@ -1,0 +1,73 @@
+{
+  "devices": {
+    "oura": {
+      "enabled": false,
+      "token": null,
+      "refresh_token": null,
+      "client_id": null,
+      "client_secret": null
+    },
+    "whoop": {
+      "enabled": false,
+      "token": null,
+      "refresh_token": null,
+      "client_id": null,
+      "client_secret": null
+    },
+    "garmin": {
+      "enabled": false,
+      "db_path": "~/HealthData/DBs"
+    }
+  },
+  "calendar": {
+    "enabled": false,
+    "provider": "google",
+    "calendar_id": "primary"
+  },
+  "apps": {
+    "apple_fitness_plus": {
+      "enabled": false,
+      "preferred_trainers": [],
+      "preferred_workout_types": [],
+      "completed_workouts": []
+    },
+    "prehab": {
+      "enabled": false,
+      "programs": []
+    }
+  },
+  "location": "",
+  "equipment": {
+    "home": [],
+    "gym": [],
+    "outdoor": []
+  },
+  "programs": [],
+  "goals": {
+    "health_metrics": [],
+    "activity_goals": []
+  },
+  "preferences": {
+    "training_days": [],
+    "session_duration_minutes": 60,
+    "outdoor_activities": [],
+    "indoor_activities": [],
+    "variety_preference": "moderate",
+    "morning_activities": [],
+    "afternoon_activities": [],
+    "evening_activities": []
+  },
+  "automation": {
+    "weekly_planner": {
+      "enabled": false,
+      "cron": "0 18 * * 0",
+      "description": "Sunday at 6 PM"
+    },
+    "daily_coach": {
+      "enabled": false,
+      "cron": "0 7 * * *",
+      "description": "Daily at 7 AM",
+      "quiet_mode": false
+    }
+  }
+}

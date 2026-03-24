@@ -1,0 +1,39 @@
+# User profile with real credentials
+profile.json
+
+# Token files
+*.token
+*.secret
+
+# GarminDB local data
+HealthData/
+.GarminDb/
+
+# Workout planner working directory
+.workout-planner/plans/
+.workout-planner/logs/
+.workout-planner/goals/
+.workout-planner/rehab/
+.workout-planner/scripts/fetch_data.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Eval workspace (generated during development)
+*-workspace/
