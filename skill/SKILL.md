@@ -270,7 +270,7 @@ The daily coach is a **briefing, not a conversation.** Most mornings, the user j
 
 **Normal day (plan exists, recovery looks fine, no missed sessions):**
 
-> Morning. Recovery 78%, slept 7.2 hrs — you're good.
+> Good work on yesterday's bench session — you hit all your working sets and the 45-mile ride after was solid volume. Recovery 78%, slept 7.2 hrs — you're in good shape.
 >
 > **Today:**
 > - 7:00 AM — Mobility session · 25 min · Home
@@ -296,33 +296,45 @@ This is the core of the skill. The workflow applies whether triggered by cron or
 
 ### Morning Check-In
 
-**1. Pull biometric state**
+**1. Review yesterday's activity**
+- Check what the user actually did yesterday — pull from GarminDB activity history, WHOOP workout logs, Oura activity data, or calendar event completions
+- Compare against what was planned for yesterday in the weekly plan
+- **Acknowledge what they accomplished.** This matters for motivation. A quick, genuine note goes a long way:
+  - Completed the planned session: "Nice work on yesterday's squat session — you hit every set."
+  - Went above and beyond: "You crushed it yesterday — the plan called for a 30-mile ride and you did 38. Strong."
+  - Completed a streak or milestone: "That's 3 weeks straight of hitting every planned session. Consistency is paying off."
+  - Completed a Prehab session: "Good on you for getting that mobility session in. Phase 2 is 80% done."
+  - Did something unplanned but positive: "Looks like you snuck in a hike yesterday — bonus activity, love it."
+- If they skipped yesterday's session, don't dwell on it. The missed workout handler covers that. Just note it factually when relevant to today's plan.
+- Keep the praise brief and genuine — one sentence, not a paragraph. Nobody wants a motivational speech at 7 AM. But consistent positive feedback for consistent effort reinforces the habit.
+
+**2. Pull biometric state**
 - Fetch recovery/readiness data from enabled wearable(s)
 - Get last night's sleep data, HRV, resting HR
 - If WHOOP is connected, also note yesterday's strain level
 - Summarize in 2-3 lines: sleep quality, recovery status, any red flags
 
-**2. Check the calendar** (if enabled)
+**3. Check the calendar** (if enabled)
 - Get today's schedule
 - Identify available training windows
 - Note which timeslots work for which activities (morning → mobility; long afternoon gap → outdoor ride)
 
-**3. Check weather** (if outdoor activities are on today's plan)
+**4. Check weather** (if outdoor activities are on today's plan)
 - Look up the forecast for the user's location
 - Decide: outdoor training viable? Which time window is best?
 - If weather is bad, prepare indoor alternatives (including app-based workouts if enabled)
 
-**4. Cross-reference the weekly plan**
+**5. Cross-reference the weekly plan**
 - What was scheduled for today?
 - Has anything from earlier in the week been missed that needs to be made up?
 - Are there app-based sessions (Prehab, Fitness+) due today?
 - Based on recovery data, should today's planned intensity be adjusted?
 
-**5. Produce the recommendation**
+**6. Produce the recommendation**
 
-Present it conversationally. Include the specific workout details, timeslots, and any app-based sessions to look up. If suggesting an app workout, give enough detail for the user to find it (type, approximate duration, trainer if applicable).
+Present it conversationally. Lead with yesterday's acknowledgment, then biometrics, then today's plan. Include the specific workout details, timeslots, and any app-based sessions to look up.
 
-**6. Schedule it** (if calendar is enabled)
+**7. Schedule it** (if calendar is enabled)
 - Create events with workout details in the description
 - Confirm or ask for approval depending on the magnitude of changes
 
