@@ -26,6 +26,7 @@ The update check should never block normal coaching.
 This skill is modular. Use the top-level file as the router, then read the more specific command file that matches the user's request.
 
 ### Command modules
+- `commands/onboarding.md` — first-run setup, profile creation, and setup flows
 - `commands/update-check.md` — product preamble, update policy, and prompt behavior
 - `commands/coach-style.md` — accountability, motivation, and intervention-style rules
 - `commands/daily-coach.md` — daily coaching flow, daily sports psych prompts, and same-day adjustments
@@ -43,6 +44,12 @@ This skill is modular. Use the top-level file as the router, then read the more 
 - `references/setup-garmindb.md`
 
 ## Routing guidance
+
+### Read `commands/onboarding.md` when:
+- the user is setting up workout-claw for the first time
+- the profile file is missing
+- the user is connecting wearables, workout apps, or calendar integration
+- the user is changing core profile configuration
 
 ### Read `commands/coach-style.md` when:
 - the user wants the coach to be more or less motivating
@@ -69,24 +76,7 @@ This skill is modular. Use the top-level file as the router, then read the more 
 
 ## Onboarding
 
-On first use, or when the profile file doesn't exist at `~/.workout-planner/profile.json`, run the onboarding flow.
-
-Collect:
-1. wearable devices and setup status
-2. calendar integration preferences
-3. workout apps (Apple Fitness+, Prehab)
-4. equipment and training locations
-5. goals
-6. schedule and training preferences
-7. automation preferences
-8. coaching style preferences
-
-For setup-heavy flows, use the relevant reference files directly:
-- Oura setup → `references/setup-oura.md`
-- WHOOP setup → `references/setup-whoop.md`
-- GarminDB setup → `references/setup-garmindb.md`
-
-The onboarding should feel like a conversation, not a form.
+On first use, or when the profile file doesn't exist at `~/.workout-planner/profile.json`, read `commands/onboarding.md` and follow it.
 
 ### Profile file
 

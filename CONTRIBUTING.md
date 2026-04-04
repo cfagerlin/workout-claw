@@ -1,83 +1,71 @@
 # Contributing to workout-claw
 
-Thanks for your interest in contributing! This project is an AI skill — a set of instructions and reference files that teach an AI agent how to be a training coach. Contributing here is a bit different from a traditional software project.
+Thanks for your interest in contributing.
 
-## What You Can Contribute
+Workout-claw is now structured like a small product repo, not just one long skill file. That means contributions usually touch one of four areas:
+- `skill/SKILL.md` for top-level routing and product behavior
+- `skill/commands/*.md` for workflow-specific behavior
+- `skill/references/*.md` for integrations and setup guides
+- `scripts/` for deterministic helper behavior
 
-### New Device Integrations
+## Contributor golden path
+1. Read `README.md`
+2. Read `docs/ARCHITECTURE.md`
+3. Read `skill/SKILL.md`
+4. Read the specific command or reference file you want to modify
+5. Run `python3 scripts/check-structure.py`
+6. Test representative prompts manually
+7. Update docs/examples if behavior changed
 
-Want to add support for another wearable (Fitbit, Apple Watch via HealthKit, Polar, etc.)?
+## What you can contribute
 
-1. **Create a reference file** at `skill/references/[device]-api.md` with:
-   - Authentication method and setup steps
-   - Available endpoints/data sources and the fields they return
-   - Example code for fetching key metrics (recovery, sleep, HRV, HR, activity)
-   - A mapping table showing how this device's recovery/readiness signals translate to the shared intensity framework (see the WHOOP reference for an example)
+### New device integrations
+To add another wearable or recovery data source:
+1. Create a reference file at `skill/references/[device]-api.md`
+2. Create a setup guide at `skill/references/setup-[device].md`
+3. Update `skill/SKILL.md` routing or onboarding references if needed
+4. Update example profile/config structure if the new integration changes schema
 
-2. **Create a setup guide** at `skill/references/setup-[device].md` with:
-   - Prerequisites
-   - Step-by-step setup instructions (assume the user has never done this before)
-   - Troubleshooting for common issues
+### New workout app integrations
+To add another workout app:
+1. Create a reference file at `skill/references/[app]-app.md`
+2. Document the integration approach clearly (API-based or knowledge-based)
+3. Update `skill/SKILL.md` and command docs if the app changes routing or planning behavior
 
-3. **Update SKILL.md**:
-   - Add the device to the supported devices table in the Onboarding section
-   - Add setup guide reference to the onboarding walkthrough
-   - Add the device to the Data Sources section
-   - Update the Normalizing Recovery Data table with the new device's signals
+### Improving coaching logic
+Most behavior changes should now go into the command docs:
+- daily behavior → `skill/commands/daily-coach.md`
+- weekly planning → `skill/commands/weekly-plan.md`
+- personalization logic → `skill/commands/coach-style.md`
+- onboarding/setup behavior → `skill/commands/onboarding.md`
+- product/update behavior → `skill/commands/update-check.md`
 
-4. **Update the profile schema** — add an entry under `devices` in the example profile
+### Runtime helpers and structure
+If a behavior is better expressed as deterministic code than markdown, add it to `scripts/`.
+Examples:
+- update checks
+- config validation
+- structural checks
 
-### New Workout App Integrations
+## QA expectations
+At minimum:
+- run `python3 scripts/check-structure.py`
+- make sure JSON examples still parse
+- manually test representative prompts for the workflow you changed
+- update `docs/QA.md` or related docs if your change affects the QA story
 
-Want to add support for another workout app (Peloton, Nike Training Club, ROMWOD, etc.)?
+## Style guidelines
+- Keep top-level docs clear and direct
+- Keep workflow detail in command docs, not scattered everywhere
+- Keep integration-specific detail in reference files
+- Keep user-specific tuning out of repo files
+- Prefer small, explicit changes over vague cleverness
 
-1. **Create a reference file** at `skill/references/[app]-app.md` with:
-   - What the app offers (workout types, programs, etc.)
-   - Integration approach (API if available, knowledge-based if not)
-   - How to suggest workouts from this app
-   - How to track completion and preferences
+## Pull requests
+A good PR should explain:
+- what changed
+- why it helps the user or contributor
+- how you tested it
+- whether it changes structure, behavior, or both
 
-2. **Update SKILL.md**:
-   - Add the app to the Onboarding section
-   - Add integration details to the App Integration Details section
-
-### Improving Coaching Logic
-
-The coaching logic lives in SKILL.md. If you have expertise in exercise science, periodization, or coaching, improvements are welcome:
-
-- Better recovery-to-intensity mapping
-- More sophisticated periodization guidance
-- Sport-specific training plan templates
-- Better variety/rotation algorithms
-- Improved handling of multi-sport athletes
-
-When improving coaching logic, please cite sources where applicable (research papers, established coaching frameworks like Bompa's periodization, etc.).
-
-### Bug Fixes & Edge Cases
-
-If you find a scenario where the skill gives bad advice or misses something:
-
-1. Describe the scenario clearly (what the user said, what data was available, what the skill did vs. what it should have done)
-2. Propose a fix — usually this means adding or modifying a section in SKILL.md
-3. If possible, add a test case to `skill/evals/evals.json`
-
-## How to Submit Changes
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b add-fitbit-support`
-3. Make your changes
-4. Test the skill with your agent framework if possible
-5. Submit a pull request with:
-   - A clear description of what you added/changed
-   - Why it's useful
-   - How you tested it
-
-## Style Guidelines
-
-- **SKILL.md:** Write in the imperative voice. Explain *why* behind instructions, not just *what*. Avoid excessive MUST/NEVER — explain the reasoning so the AI understands the intent. Keep it under 500 lines if possible; use reference files for details.
-- **Reference files:** Be thorough but organized. Include tables, code examples, and troubleshooting sections. Write setup guides for someone who's never done this before.
-- **Profile schema:** Keep it flat and readable. Use descriptive field names. Always provide sensible defaults.
-
-## Code of Conduct
-
-Be kind, be constructive, be helpful. This project is about helping people train smarter — let's bring that same energy to how we work together.
+Be direct. Keep the repo cleaner than you found it.

@@ -82,6 +82,7 @@ workout-claw/
 │   ├── commands/                   # Modular command/workflow docs
 │   │   ├── coach-style.md
 │   │   ├── daily-coach.md
+│   │   ├── onboarding.md
 │   │   ├── update-check.md
 │   │   └── weekly-plan.md
 │   └── references/                 # API docs, setup guides, app references
@@ -101,6 +102,8 @@ workout-claw/
 │   └── config.example.json
 ├── docs/
 │   ├── ARCHITECTURE.md
+│   ├── QA.md
+│   ├── RELEASES.md
 │   └── ROADMAP.md
 ├── VERSION
 ├── LICENSE
@@ -153,6 +156,8 @@ workout-claw now has a product-level `VERSION` file and a lightweight update-che
 
 The intended behavior is simple: if a newer version exists, prompt the user with short options like **update now**, **remind me later**, or **never ask again**. No silent auto-updates.
 
+Right now this is intentionally a foundation, not a full installer/upgrader. See `docs/RELEASES.md`.
+
 ## Recovery Decision Framework
 
 The skill normalizes data from different wearables into a common intensity framework:
@@ -168,6 +173,15 @@ When multiple devices are connected, it uses all available signals and errs on t
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new device integrations, workout app support, or improving the coaching logic.
+
+### Contributor golden path
+1. Read `README.md`
+2. Read `docs/ARCHITECTURE.md`
+3. Read `skill/SKILL.md`
+4. Read the command module you want to modify
+5. Run `python3 scripts/check-structure.py`
+6. Test representative prompts manually
+7. Update docs/examples if behavior changed
 
 ## License
 
