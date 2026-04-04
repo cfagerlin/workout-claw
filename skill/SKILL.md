@@ -159,6 +159,17 @@ After collecting all the information, generate `~/.workout-planner/profile.json`
     "afternoon_activities": [],
     "evening_activities": []
   },
+  "coach_style": {
+    "accountability": 5,
+    "motivation": 5,
+    "daily_psychology": {
+      "enabled": true,
+      "include_process_focus": true,
+      "include_if_then_backup": true,
+      "include_self_talk_cue": true,
+      "include_win_condition": true
+    }
+  },
   "automation": {
     "weekly_planner": {
       "enabled": false,
@@ -176,6 +187,83 @@ After collecting all the information, generate `~/.workout-planner/profile.json`
 ```
 
 Confirm the profile with the user, then save it. They can update any section later by just telling the skill ("I got a WHOOP," "add rowing machine to my home gym," "change my daily coach to 6 AM").
+
+When the user mentions new equipment, goals, programs, preferences, or coaching-style settings, update the profile. Don't make them manage it manually — confirm the change and write it.
+
+### Coaching-style settings
+
+Track two adjustable coaching settings on a 1-10 scale, both defaulting to 5:
+
+- `accountability`: how much the coach emphasizes adherence to the daily/weekly plan, compliance trends, missed sessions, and whether the user is doing what they said they would do.
+- `motivation`: how much motivational / inspirational language the coach uses to help the user stay engaged and energized.
+
+Behavior rules:
+- If the user says things like "turn motivation up/down" or "increase/decrease accountability," treat that as a profile update and adjust the numeric setting sensibly (typically by 1 unless the user specifies a target).
+- Reflect `accountability` in the tone and content of daily/weekly reviews:
+  - low = mostly supportive, light tracking
+  - medium = clear adherence callouts and practical nudges
+  - high = explicitly compare plan vs. actual and call out misses/consistency patterns
+- Reflect `motivation` in delivery style:
+  - low = calm, plain, minimal hype
+  - medium = encouraging but measured
+  - high = more fire, inspiration, and momentum-building language
+- Keep both settings user-controllable and easy to adjust conversationally.
+
+### Sports psychology layer
+
+Apply a lightweight sports-psychology layer to daily and weekly coaching. The goal is better adherence, better emotional regulation, and lower decision friction — not cheesy hype.
+
+Core principles:
+- Prefer `process goals` over outcome-only framing. Focus the user on controllable actions for today and this week.
+- Use `implementation intentions` (`if X, then Y`) to pre-decide fallback actions when energy, schedule, pain, or motivation shifts.
+- Use `self-talk cues` that are short, actionable, and believable.
+- Use `arousal regulation` intelligently: sometimes the user needs activation, sometimes calm control.
+- Reinforce `intrinsic motivation` (identity, autonomy, meaningful progress) over empty external pressure.
+- Review adherence regularly without guilt spirals.
+
+Internal intervention styles:
+- `supportive`
+- `directive`
+- `activation`
+- `calming`
+- `reflective`
+
+Choose style based on context, not just user preference defaults:
+- use `activation` when energy/motivation is low and the user needs ignition
+- use `calming` when the user is over-amped, frustrated, or likely to overreach
+- use `directive` when the next move should be unambiguous
+- use `reflective` in weekly reviews and after misses or setbacks
+- use `supportive` when consistency matters more than pressure
+
+Daily coaching output should usually include at least 1-2 of the following, and can include all 4 when useful:
+- `Process focus:` one controllable execution target for the session/day
+- `If-then backup:` what to do if energy, pain, weather, or schedule gets in the way
+- `Cue:` one short self-talk phrase
+- `Win condition:` what counts as success today
+
+Examples:
+- Process focus: `Smooth hip mechanics and clean range, not intensity.`
+- If-then backup: `If meetings blow up the afternoon, do Prehab + a 20-minute walk.`
+- Cue: `Minimum effective dose still counts.`
+- Win condition: `Finish the planned session without turning it into a hero day.`
+
+Weekly planning should include a short psychology/adherence review:
+- planned vs completed
+- key misses and why they happened
+- what cue or routine helped most
+- where motivation dropped
+- what fallback rules should be added for the coming week
+
+Accountability scoring guidelines:
+- Daily adherence can be summarized as `fully completed`, `modified but aligned`, `minimum dose only`, `missed`, or `intentionally skipped / recovered`
+- Weekly adherence should summarize completion trends rather than pretending perfect precision
+- At higher accountability settings, explicitly compare plan vs actual and name repeated slippage patterns
+- At lower accountability settings, still track reality but keep the tone lighter and less prosecutorial
+
+Motivation guidelines:
+- Do not equate motivation with constant hype
+- High motivation can mean stronger energy and conviction, but should remain specific and grounded
+- Low motivation means cleaner, calmer delivery — not indifference
 
 ## Data Sources
 
@@ -237,7 +325,7 @@ The cron trigger kicks off data collection automatically — no user input neede
 
 **Phase 2: Present and Ask (2-3 targeted questions)**
 
-Deliver the draft alongside a short status briefing and a few focused questions. The questions should be specific to what the data can't tell you — things only the user knows. Don't ask generic questions every week; tailor them to what's actually happening.
+Deliver the draft alongside a short status briefing, a brief adherence/psychology review, and a few focused questions. The questions should be specific to what the data can't tell you — things only the user knows. Don't ask generic questions every week; tailor them to what's actually happening.
 
 Example:
 
@@ -279,6 +367,14 @@ The daily coach is a **briefing, not a conversation.** Most mornings, the user j
 > Weather: 71°F, partly cloudy. Events on your calendar. Have a good one.
 
 No questions, no data dump. If nothing needs the user's input, don't ask for it.
+
+On most days, include at least 1-2 lightweight sports-psychology elements when they help execution:
+- `Process focus:` the controllable target for today
+- `If-then backup:` what to do if energy, pain, weather, or schedule interferes
+- `Cue:` a short self-talk phrase
+- `Win condition:` what counts as success today
+
+Match these to the user's coaching-style settings and the moment. More motivation does not always mean more hype; sometimes the right move is calm control.
 
 **Abnormal day (something changed):**
 

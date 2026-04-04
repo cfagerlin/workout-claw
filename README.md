@@ -13,6 +13,8 @@ workout-claw is a skill for AI agent frameworks (designed for [OpenClaw](https:/
 - **Calendar scheduling** — Finds open timeslots in your calendar, respects time-of-day preferences (mobility in the morning, strength in the afternoon), and creates detailed workout events you can reference from your phone.
 - **App-based workout suggestions** — Recommends specific Apple Fitness+ and Prehab app workouts when they fit the plan.
 - **Equipment & program management** — Tracks your equipment by location and your structured programs (5/3/1, PPL, etc.), scheduling around them without overriding your programming.
+- **Adjustable coaching style** — Supports `accountability` and `motivation` settings (1-10) so the coach can be more blunt, more encouraging, or more adherence-focused based on the user.
+- **Sports psychology layer** — Adds process goals, if-then fallback plans, self-talk cues, and clear win conditions to improve adherence and reduce decision friction.
 
 ## Supported Integrations
 
@@ -58,6 +60,7 @@ The onboarding flow will walk you through:
 5. Setting your goals
 6. Configuring your schedule preferences
 7. Setting up automated daily/weekly coaching (optional cron jobs)
+8. Tuning coaching style (`accountability`, `motivation`, and daily psychology prompts)
 
 ### 3. Start training
 
@@ -105,8 +108,29 @@ A scheduled job gathers your biometric trends, scans your calendar, checks the w
 ### Automated Daily Coaching (cron)
 A morning briefing that checks last night's sleep and recovery, cross-references today's plan, and confirms or adjusts your sessions. On normal days it's a quick 3-line summary. On abnormal days (bad sleep, missed workout, weather change) it suggests specific adjustments.
 
+It can also layer in lightweight sports-psychology prompts when useful:
+- **Process focus** — what to execute well today
+- **If-then backup** — what to do if energy, schedule, pain, or weather interferes
+- **Cue** — a short self-talk phrase
+- **Win condition** — what counts as success today
+
 ### On-Demand Interaction
 Invoke the coach anytime — early morning, post-workout, mid-week when plans change. It runs the same logic regardless of when you trigger it.
+
+## Coaching Style
+
+The coach supports two user-tunable settings:
+
+- **Accountability (1-10)** — how strongly it emphasizes adherence, missed sessions, and plan-vs-actual review
+- **Motivation (1-10)** — how much motivational / inspirational energy it uses in delivery
+
+These can be adjusted conversationally:
+- "turn motivation up"
+- "turn motivation down"
+- "increase accountability"
+- "set motivation to 8"
+
+The skill also supports a lightweight sports-psychology layer designed to improve adherence without turning into cheesy hype.
 
 ## Recovery Decision Framework
 
