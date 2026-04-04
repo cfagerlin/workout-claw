@@ -96,15 +96,20 @@ workout-claw/
 │       ├── setup-whoop.md
 │       └── setup-garmindb.md
 ├── scripts/
+│   ├── check-structure.py
+│   ├── check-version-bump.py
 │   └── workout-claw-update-check.py
 ├── examples/
 │   ├── profile.example.json
-│   └── config.example.json
+│   ├── config.example.json
+│   ├── qa-scenarios.md
+│   └── versioning.example.md
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── QA.md
 │   ├── RELEASES.md
-│   └── ROADMAP.md
+│   ├── ROADMAP.md
+│   └── VERSIONING.md
 ├── VERSION
 ├── LICENSE
 ├── CONTRIBUTING.md
@@ -180,8 +185,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new device integ
 3. Read `skill/SKILL.md`
 4. Read the command module you want to modify
 5. Run `python3 scripts/check-structure.py`
-6. Test representative prompts manually
-7. Update docs/examples if behavior changed
+6. Run `python3 scripts/check-version-bump.py`
+7. Test representative prompts manually using `examples/qa-scenarios.md`
+8. Update docs/examples if behavior changed
 
 ## License
 

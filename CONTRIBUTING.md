@@ -14,8 +14,9 @@ Workout-claw is now structured like a small product repo, not just one long skil
 3. Read `skill/SKILL.md`
 4. Read the specific command or reference file you want to modify
 5. Run `python3 scripts/check-structure.py`
-6. Test representative prompts manually
-7. Update docs/examples if behavior changed
+6. Run `python3 scripts/check-version-bump.py`
+7. Test representative prompts manually using `examples/qa-scenarios.md`
+8. Update docs/examples if behavior changed
 
 ## What you can contribute
 
@@ -50,9 +51,11 @@ Examples:
 ## QA expectations
 At minimum:
 - run `python3 scripts/check-structure.py`
+- run `python3 scripts/check-version-bump.py`
 - make sure JSON examples still parse
-- manually test representative prompts for the workflow you changed
+- manually test representative prompts for the workflow you changed using `examples/qa-scenarios.md`
 - update `docs/QA.md` or related docs if your change affects the QA story
+- update `docs/VERSIONING.md` or `examples/versioning.example.md` if your change affects release discipline
 
 ## Style guidelines
 - Keep top-level docs clear and direct

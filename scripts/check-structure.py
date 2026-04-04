@@ -9,14 +9,20 @@ REQUIRED_FILES = [
     ROOT / 'VERSION',
     ROOT / 'README.md',
     ROOT / 'docs' / 'ARCHITECTURE.md',
+    ROOT / 'docs' / 'QA.md',
+    ROOT / 'docs' / 'RELEASES.md',
     ROOT / 'docs' / 'ROADMAP.md',
+    ROOT / 'docs' / 'VERSIONING.md',
     ROOT / 'examples' / 'config.example.json',
+    ROOT / 'examples' / 'qa-scenarios.md',
+    ROOT / 'examples' / 'versioning.example.md',
     ROOT / 'skill' / 'SKILL.md',
     ROOT / 'skill' / 'commands' / 'onboarding.md',
     ROOT / 'skill' / 'commands' / 'coach-style.md',
     ROOT / 'skill' / 'commands' / 'daily-coach.md',
     ROOT / 'skill' / 'commands' / 'update-check.md',
     ROOT / 'skill' / 'commands' / 'weekly-plan.md',
+    ROOT / 'scripts' / 'check-version-bump.py',
 ]
 
 

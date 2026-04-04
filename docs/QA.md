@@ -30,5 +30,10 @@ Use these questions on structural PRs:
 3. Read `skill/SKILL.md`
 4. Read the command module you want to modify
 5. Run `python3 scripts/check-structure.py`
-6. Test representative prompts manually
-7. Update docs/examples when behavior changes
+6. Run `python3 scripts/check-version-bump.py`
+7. Test representative prompts manually using `examples/qa-scenarios.md`
+8. Update docs/examples when behavior changes
+
+## Scenario fixtures
+Use `examples/qa-scenarios.md` as the canonical set of manual behavior checks.
+When the product behavior changes meaningfully, update the relevant scenario expectations.
