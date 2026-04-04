@@ -2,6 +2,7 @@
   "update_policy": {
     "mode": "ask",
     "snooze_until": null,
-    "last_prompted_version": null
+    "last_prompted_version": null,
+    "default_snooze_hours": 72
   }
 }

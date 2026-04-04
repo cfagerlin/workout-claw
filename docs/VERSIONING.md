@@ -11,6 +11,7 @@ Use a patch bump for:
 - doc-only fixes with no user-visible behavior change
 - typo fixes
 - tiny helper fixes that do not materially change behavior
+- update/release-flow hardening that improves plumbing without changing the core coaching behavior contract
 
 ### Minor
 Use a minor bump for:

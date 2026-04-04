@@ -101,16 +101,21 @@ workout-claw/
 ├── scripts/
 │   ├── check-structure.py
 │   ├── check-version-bump.py
+│   ├── workout-claw-config.py
+│   ├── workout-claw-upgrade.py
 │   └── workout-claw-update-check.py
 ├── examples/
 │   ├── profile.example.json
 │   ├── config.example.json
 │   ├── qa-scenarios.md
+│   ├── qa-scenarios-update-flow.md
+│   ├── update-policy-examples.md
 │   └── versioning.example.md
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── QA.md
 │   ├── RELEASES.md
+│   ├── RELEASING.md
 │   ├── ROADMAP.md
 │   ├── VERSIONING.md
 │   └── WORKFLOWS.md
@@ -161,11 +166,13 @@ workout-claw now has a product-level `VERSION` file and a lightweight update-che
 - current repo version lives in `VERSION`
 - example local runtime config lives in `examples/config.example.json`
 - update-check behavior is documented in `skill/commands/update-check.md`
-- helper script lives in `scripts/workout-claw-update-check.py`
+- config helper lives in `scripts/workout-claw-config.py`
+- update-check helper lives in `scripts/workout-claw-update-check.py`
+- upgrade helper lives in `scripts/workout-claw-upgrade.py`
 
 The intended behavior is simple: if a newer version exists, prompt the user with short options like **update now**, **remind me later**, or **never ask again**. No silent auto-updates.
 
-Right now this is intentionally a foundation, not a full installer/upgrader. See `docs/RELEASES.md`.
+The update flow is now operational but still intentionally lightweight: policy state can be persisted locally, prompts can be snoozed or disabled, and upgrade behavior is explicit rather than silent. See `docs/RELEASES.md` and `docs/RELEASING.md`.
 
 ## Recovery Decision Framework
 
