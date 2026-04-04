@@ -18,6 +18,14 @@ If a newer version is available, the user should get a short prompt such as:
 - do not block skill usage if the check fails
 - treat the current implementation as foundation, not a full installer/upgrader yet
 
+## Versioning discipline
+Version bumps are not automatic.
+To avoid relying on memory, contributors should use:
+- `docs/VERSIONING.md`
+- `scripts/check-version-bump.py`
+
+If core product behavior changes and `VERSION` did not, the check should warn loudly.
+
 ## Future work
 - document tagged release flow
 - add an upgrade helper
