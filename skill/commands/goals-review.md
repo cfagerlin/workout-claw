@@ -18,6 +18,7 @@ Translate training and recovery data into a clear progress view that helps the u
 4. Summarize trend direction, not just snapshots
 5. Identify the biggest blocker or strongest signal
 6. Recommend the next adjustment if one is warranted
+7. When local file access is available, update a concise rolling summary in `~/.workout-planner/goals/progress.md` or append a `goal_review` event to `~/.workout-planner/logs/YYYY-MM.jsonl`
 
 ## Output shape
 A good goals review usually includes:
