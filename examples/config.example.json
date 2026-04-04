@@ -1,0 +1,7 @@
+{
+  "update_policy": {
+    "mode": "ask",
+    "snooze_until": null,
+    "last_prompted_version": null
+  }
+}
