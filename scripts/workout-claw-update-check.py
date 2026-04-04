@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 import json
-import os
-import sys
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path

@@ -9,7 +9,9 @@ Check whether a newer version of workout-claw is available and decide whether to
 - Current version file: `VERSION`
 - Local config file: `~/.workout-planner/config.json`
 - Example config: `examples/config.example.json`
-- Helper script: `scripts/workout-claw-update-check.py`
+- Read/write helper: `scripts/workout-claw-config.py`
+- Update-check helper: `scripts/workout-claw-update-check.py`
+- Upgrade helper: `scripts/workout-claw-upgrade.py`
 
 ## Supported user preferences
 Store update preferences under `update_policy`:
@@ -28,6 +30,9 @@ Modes:
 - `ask` — check for updates and prompt when a newer version is available
 - `never` — never prompt again automatically
 
+Optional field:
+- `default_snooze_hours` — how long `remind me later` should snooze prompts by default
+
 ## Prompt behavior
 If the helper script reports `UPDATE_AVAILABLE <current> <latest>` and local policy permits prompting, tell the user briefly:
 
@@ -41,10 +46,11 @@ Interpret user responses like:
 - `always ask`
 
 ## State changes
-- `update now` → proceed with the repo's documented update/install flow
-- `remind me later` → set a future `snooze_until` timestamp in local config
-- `never ask again` → set `mode` to `never`
-- `always ask` → set `mode` to `ask` and clear any snooze
+- `update now` → proceed with the repo's documented upgrade flow, using `scripts/workout-claw-upgrade.py` as the lightweight helper when appropriate
+- `remind me later` → set a future `snooze_until` timestamp in local config using `scripts/workout-claw-config.py snooze-hours <n>`
+- `never ask again` → set `mode` to `never` using `scripts/workout-claw-config.py set-mode never`
+- `always ask` → set `mode` to `ask` and clear any snooze using `scripts/workout-claw-config.py set-mode ask` and `scripts/workout-claw-config.py clear-snooze`
+- after showing a prompt for a specific version, mark it with `scripts/workout-claw-config.py mark-prompted <version>`
 
 ## Design notes
 - Do not auto-update silently.

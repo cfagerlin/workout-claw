@@ -14,10 +14,13 @@ REQUIRED_FILES = [
     ROOT / 'docs' / 'ROADMAP.md',
     ROOT / 'docs' / 'VERSIONING.md',
     ROOT / 'docs' / 'WORKFLOWS.md',
+    ROOT / 'docs' / 'RELEASING.md',
     ROOT / 'examples' / 'config.example.json',
     ROOT / 'examples' / 'qa-scenarios.md',
     ROOT / 'examples' / 'qa-scenarios-workflows.md',
     ROOT / 'examples' / 'versioning.example.md',
+    ROOT / 'examples' / 'update-policy-examples.md',
+    ROOT / 'examples' / 'qa-scenarios-update-flow.md',
     ROOT / 'skill' / 'SKILL.md',
     ROOT / 'skill' / 'commands' / 'onboarding.md',
     ROOT / 'skill' / 'commands' / 'coach-style.md',
@@ -28,6 +31,8 @@ REQUIRED_FILES = [
     ROOT / 'skill' / 'commands' / 'post-workout.md',
     ROOT / 'skill' / 'commands' / 'goals-review.md',
     ROOT / 'scripts' / 'check-version-bump.py',
+    ROOT / 'scripts' / 'workout-claw-config.py',
+    ROOT / 'scripts' / 'workout-claw-upgrade.py',
 ]
 
 
