@@ -77,25 +77,35 @@ Once setup is complete, you can:
 
 ```
 workout-claw/
-├── skill/                          # The skill itself (install this)
-│   ├── SKILL.md                    # Main skill instructions
+├── skill/
+│   ├── SKILL.md                    # Main orchestrator / router
+│   ├── commands/                   # Modular command/workflow docs
+│   │   ├── coach-style.md
+│   │   ├── daily-coach.md
+│   │   ├── update-check.md
+│   │   └── weekly-plan.md
 │   └── references/                 # API docs, setup guides, app references
-│       ├── oura-api.md             # Oura Ring API endpoints & fields
-│       ├── whoop-api.md            # WHOOP API endpoints & fields
-│       ├── garmindb.md             # GarminDB tables & queries
-│       ├── google-calendar.md      # Calendar scheduling logic
-│       ├── apple-fitness-plus.md   # Fitness+ workout categories & suggestions
-│       ├── prehab-app.md           # Prehab program tracking
-│       ├── setup-oura.md           # Oura OAuth2 setup walkthrough
-│       ├── setup-whoop.md          # WHOOP OAuth2 setup walkthrough
-│       └── setup-garmindb.md       # GarminDB installation guide
+│       ├── oura-api.md
+│       ├── whoop-api.md
+│       ├── garmindb.md
+│       ├── google-calendar.md
+│       ├── apple-fitness-plus.md
+│       ├── prehab-app.md
+│       ├── setup-oura.md
+│       ├── setup-whoop.md
+│       └── setup-garmindb.md
+├── scripts/
+│   └── workout-claw-update-check.py
 ├── examples/
-│   └── profile.example.json        # Example profile (no real credentials)
+│   ├── profile.example.json
+│   └── config.example.json
 ├── docs/
-│   └── ARCHITECTURE.md             # How the skill works under the hood
-├── LICENSE                         # MIT License
-├── CONTRIBUTING.md                 # Contribution guidelines
-└── README.md                       # This file
+│   ├── ARCHITECTURE.md
+│   └── ROADMAP.md
+├── VERSION
+├── LICENSE
+├── CONTRIBUTING.md
+└── README.md
 ```
 
 ## How It Works
@@ -131,6 +141,17 @@ These can be adjusted conversationally:
 - "set motivation to 8"
 
 The skill also supports a lightweight sports-psychology layer designed to improve adherence without turning into cheesy hype.
+
+## Versioning and update checks
+
+workout-claw now has a product-level `VERSION` file and a lightweight update-check design.
+
+- current repo version lives in `VERSION`
+- example local runtime config lives in `examples/config.example.json`
+- update-check behavior is documented in `skill/commands/update-check.md`
+- helper script lives in `scripts/workout-claw-update-check.py`
+
+The intended behavior is simple: if a newer version exists, prompt the user with short options like **update now**, **remind me later**, or **never ask again**. No silent auto-updates.
 
 ## Recovery Decision Framework
 
