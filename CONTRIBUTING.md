@@ -37,6 +37,9 @@ To add another workout app:
 Most behavior changes should now go into the command docs:
 - daily behavior → `skill/commands/daily-coach.md`
 - weekly planning → `skill/commands/weekly-plan.md`
+- missed-session handling → `skill/commands/missed-workout.md`
+- post-session handling → `skill/commands/post-workout.md`
+- progress review logic → `skill/commands/goals-review.md`
 - personalization logic → `skill/commands/coach-style.md`
 - onboarding/setup behavior → `skill/commands/onboarding.md`
 - product/update behavior → `skill/commands/update-check.md`

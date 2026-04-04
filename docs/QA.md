@@ -36,4 +36,5 @@ Use these questions on structural PRs:
 
 ## Scenario fixtures
 Use `examples/qa-scenarios.md` as the canonical set of manual behavior checks.
+Use `examples/qa-scenarios-workflows.md` for the additional workflow-specific checks.
 When the product behavior changes meaningfully, update the relevant scenario expectations.
