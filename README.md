@@ -84,7 +84,10 @@ workout-claw/
 │   │   ├── daily-coach.md
 │   │   ├── onboarding.md
 │   │   ├── update-check.md
-│   │   └── weekly-plan.md
+│   │   ├── weekly-plan.md
+│   │   ├── missed-workout.md
+│   │   ├── post-workout.md
+│   │   └── goals-review.md
 │   └── references/                 # API docs, setup guides, app references
 │       ├── oura-api.md
 │       ├── whoop-api.md
@@ -109,7 +112,8 @@ workout-claw/
 │   ├── QA.md
 │   ├── RELEASES.md
 │   ├── ROADMAP.md
-│   └── VERSIONING.md
+│   ├── VERSIONING.md
+│   └── WORKFLOWS.md
 ├── VERSION
 ├── LICENSE
 ├── CONTRIBUTING.md
@@ -174,6 +178,20 @@ The skill normalizes data from different wearables into a common intensity frame
 | Back off | Readiness < 60 | Recovery RED (0-33%) | "Tired" / "Sore" |
 
 When multiple devices are connected, it uses all available signals and errs on the side of caution when they disagree.
+
+## Core coaching workflow coverage
+
+The product now has first-class workflow modules for:
+- onboarding
+- daily coach
+- weekly plan
+- missed workout
+- post-workout
+- goals review
+- coach style / personalization
+- update check
+
+See `docs/WORKFLOWS.md`.
 
 ## Contributing
 

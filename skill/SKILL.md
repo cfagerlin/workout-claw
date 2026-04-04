@@ -31,6 +31,9 @@ This skill is modular. Use the top-level file as the router, then read the more 
 - `commands/coach-style.md` — accountability, motivation, and intervention-style rules
 - `commands/daily-coach.md` — daily coaching flow, daily sports psych prompts, and same-day adjustments
 - `commands/weekly-plan.md` — weekly planning, adherence review, and week-level structure
+- `commands/missed-workout.md` — recovery-aware week adjustments after missed sessions
+- `commands/post-workout.md` — post-session capture and near-term adjustment logic
+- `commands/goals-review.md` — progress review across health, training, rehab, and event goals
 
 ### Reference modules
 - `references/oura-api.md`
@@ -62,6 +65,21 @@ This skill is modular. Use the top-level file as the router, then read the more 
 - the user asks for a morning brief / daily workout recommendation
 - the user reports fatigue, soreness, pain, or schedule changes for today
 - the user wants same-day adaptation
+
+### Read `commands/post-workout.md` when:
+- the user reports finishing a workout
+- the user shares session performance, soreness, or immediate recovery feedback
+- the user wants to know whether today's session changes the next 1-2 days
+
+### Read `commands/missed-workout.md` when:
+- the user says they skipped or missed a workout
+- the user wants to restructure the rest of the week after falling behind
+- the user needs help deciding what to reschedule versus drop
+
+### Read `commands/goals-review.md` when:
+- the user asks how they are doing on their goals
+- the user wants an overall progress review
+- the user wants status on rehab, activity targets, health metrics, or event prep
 
 ### Read `commands/weekly-plan.md` when:
 - the user asks for a weekly plan
@@ -157,6 +175,8 @@ Suggested shape:
 ```
 
 When the user mentions new equipment, goals, programs, preferences, or coaching-style settings, update the profile rather than making them edit JSON manually.
+
+If the user reports completed workouts, missed sessions, or progress changes that affect plan state, update the relevant local records or plan context rather than treating each event as isolated chat.
 
 ## Data sources
 
