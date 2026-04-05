@@ -18,6 +18,8 @@ Respond without guilt, preserve week integrity, and decide what to reschedule ve
 3. Review the remaining calendar and recovery state
 4. Decide whether to reschedule, modify, or drop it
 5. Show the adjusted plan briefly and clearly
+6. Append a `workout_missed` event to `~/.workout-planner/logs/YYYY-MM.jsonl` when local file access is available
+7. If the week materially changes, also record a `plan_adjusted` event
 
 ## Priority framework
 ### Usually worth rescheduling

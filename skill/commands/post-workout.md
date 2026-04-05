@@ -11,6 +11,7 @@ Capture what happened, reinforce useful signal, and adjust upcoming training if 
 3. Note any performance or recovery signal from their feedback
 4. Decide whether the next 1-2 days should change
 5. Update the weekly plan or recommendations when needed
+6. Append a lightweight event entry under `~/.workout-planner/logs/YYYY-MM.jsonl` when local file access is available
 
 ## What to capture
 Examples:
@@ -33,6 +34,7 @@ Adjust upcoming recommendations when the user reports:
 - do react to pain, instability, or repeated signs of excessive load
 - if the user has app-based recovery or rehab options enabled, suggest them when they are the best fit
 - update the week quietly when the change is obvious; ask only if the tradeoff meaningfully needs user input
+- prefer simple append-only logs over fragile hidden state
 
 ## Tone
 - brief and grounded

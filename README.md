@@ -109,7 +109,10 @@ workout-claw/
 │   ├── config.example.json
 │   ├── qa-scenarios.md
 │   ├── qa-scenarios-update-flow.md
+│   ├── qa-scenarios-state-model.md
 │   ├── update-policy-examples.md
+│   ├── plan-template.md
+│   ├── log-entry-examples.jsonl
 │   └── versioning.example.md
 ├── docs/
 │   ├── ARCHITECTURE.md
@@ -117,6 +120,7 @@ workout-claw/
 │   ├── RELEASES.md
 │   ├── RELEASING.md
 │   ├── ROADMAP.md
+│   ├── STATE.md
 │   ├── VERSIONING.md
 │   └── WORKFLOWS.md
 ├── VERSION
@@ -199,6 +203,12 @@ The product now has first-class workflow modules for:
 - update check
 
 See `docs/WORKFLOWS.md`.
+
+## Local state model
+
+The product uses simple inspectable local files under `~/.workout-planner/` for plans, logs, goals, rehab notes, profile, and config rather than hiding everything in vague internal state.
+
+See `docs/STATE.md`.
 
 ## Contributing
 

@@ -10,7 +10,8 @@ Use this module for weekly planning, Sunday reset sessions, Monday backup sessio
 5. Build a draft plan by timeslot, not just by day
 6. Ask 2-3 targeted questions if needed
 7. Finalize after user confirmation
-8. Schedule events if calendar integration is enabled
+8. Persist the plan to `~/.workout-planner/plans/week-YYYY-MM-DD.md` when local file access is available
+9. Schedule events if calendar integration is enabled
 
 ## Weekly adherence + psychology review
 Include a short review before or alongside the draft:
